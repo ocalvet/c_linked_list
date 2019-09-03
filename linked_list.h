@@ -1,7 +1,8 @@
 typedef struct s_node
 {
     int data;
-    struct s_node *next;
+    struct s_node *n;
+    struct s_node *p;
 } node;
 
 node *createList();
