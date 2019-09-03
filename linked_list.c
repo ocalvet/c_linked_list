@@ -8,6 +8,7 @@ node *createList(int firstData)
     node *head = (node *)malloc(sizeof(node));
     head->data = firstData;
     head->n = NULL;
+    head->p = NULL;
     return head;
 };
 
@@ -19,6 +20,7 @@ void add_element(node *head, int a)
     node *iter = head;
     while (iter->n != NULL)
         iter = iter->n;
+    newNode->p = iter;
     iter->n = newNode;
 };
 
@@ -33,18 +35,16 @@ void remove_element(node **head, int d)
     }
     else
     {
-        node *prior = (*head);
         node *iter = (*head)->n;
         while (iter != NULL)
         {
             if (iter->data == d)
             {
                 node *removalNode = iter;
-                prior->n = iter->n;
+                iter->p->n = iter->n;
                 free(removalNode);
                 return;
             }
-            prior = iter;
             iter = iter->n;
         }
     }
