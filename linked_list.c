@@ -50,6 +50,20 @@ void remove_element(node **head, int d)
     }
 }
 
+node *search_element(node *head, int d)
+{
+    node *iter = head;
+    while (iter != NULL)
+    {
+        if (iter->data == d)
+        {
+            return iter;
+        }
+        iter = iter->n;
+    }
+    return NULL;
+}
+
 void print_list(node *head)
 {
     node *iter = head;

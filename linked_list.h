@@ -8,4 +8,5 @@ typedef struct s_node
 node *createList();
 void add_element(node *head, int a);
 void remove_element(node **head, int d);
+node *search_element(node *head, int d);
 void print_list(node *);
